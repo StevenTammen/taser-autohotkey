@@ -78,6 +78,12 @@ DONE
 
 Testing same general thing, except now backspacing by word
 
+- Investigate issue that can randomly cause whole layout to lock up. See if can figure out how to consistly replicate
+One thing that can cause this is trying to trigger something on the selection lock layer that is not defined. Since it is a lock
+Not a leader, that will keep you seeminly stuck on the layer until you pressed append or insert. Another possibility seems to be related to backspacing further back than the sent_keys_stack goes. My guess is that I didn't properly handle 
+the case that the array is empty, or something like that.
+DONE. Fixed in backspace() function.
+
 
 ---------------------------------------
 
@@ -140,9 +146,9 @@ Set up jumpselect word/WORD and jumpextend to word/WORD in Emacs
 /*
 Adjusting genetic algorithm keyboard layout optimizers to replace all words typed with briefs with their brief form, rather than the words themselves
 
-Investigate issue that can randomly cause whole layout to lock up. See if can figure out how to consistly replicate
 
-Investigate issue that can randmoly cause characters you just typed to somehow get duplicated. See if can consistently replicate this one as well.
+
+Investigate issue that can randomly cause characters you just typed to somehow get duplicated. See if can consistently replicate this one as well.
 
 Investigate issue that can randomly make keyboard disconnect, with some drive pop up. RJ45 cable or something?
 Reconnecting keyboard seems to fix
@@ -2121,15 +2127,28 @@ backspace() {
         else {
             key_being_undone := sent_keys_stack.pop()
 
-            ; These things need to be set to what they were *before* the keypress being
-            ; undone
-            ; Have to handle case that is the case of length = 1
+            ; Since we are reverting the press completely, need to remove the top thing on all the
+            ; history stacks
             locked_state_history_stack.pop()
-            locked := locked_state_history_stack[locked_state_history_stack.Length()]       
             automatching_state_history_stack.pop()
-            automatching_stack := automatching_state_history_stack[automatching_state_history_stack.Length()]
             autospacing_state_history_stack.pop()
-            autospacing := autospacing_state_history_stack[autospacing_state_history_stack.Length()]
+
+            ; If after the pop the length of the stacks == 0, then that means there is nothing to reset the things to (no "last"),
+            ; since with this last backspace, one would reach the beginning of a new entry. So we need to set the variables
+            ; equal to their default value. (To make it as if no keys had been pressed, it must be the reset to same state as
+            ; when one first starts a new entry generally = on base layer and no automatching or autospacing).
+            if(sent_keys_stack.Length() == 0) {
+                locked := "base"
+                automatching_stack := []
+                autospacing := "not-autospaced"
+            }
+            ; Otherwise, these things need to be set to what they were *before* the keypress being
+            ; undone
+            else {
+                locked := locked_state_history_stack[locked_state_history_stack.Length()]
+                automatching_stack := automatching_state_history_stack[automatching_state_history_stack.Length()]
+                autospacing := autospacing_state_history_stack[autospacing_state_history_stack.Length()]
+            }
             
             keys_to_return := undo_sent_keys_stack.pop()
 
