@@ -501,11 +501,11 @@ had_triggered_hotstring(key, undo_keys) {
 }
 
 ; For helping in debugging
-get_string_representation_of_sent_keys_stack() {
+arr_as_str(array) {
     string_representation := "`n"
-    index := sent_keys_stack.Length()
+    index := array.Length()
     while index >= 1 {
-        string_representation := string_representation . "`n" . sent_keys_stack[index]
+        string_representation := string_representation . "`n" . array[index]
         index := index -1
     }
     return string_representation

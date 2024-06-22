@@ -5,22 +5,28 @@ SetWorkingDir, %A_ScriptDir%
 
 
 *f::
-    currency_map := {}
-
-    dollars := {}
-    dollars["symbol"] := "$"
-    dollars["symbol_location"] := "prefix"
-    dollars["decimal"] := "."
-    dollars["thousands_separator"] := ","
-    currency_map["dollars"] := dollars
-
-    currency := "dollars"
-    currency_properties := currency_map[currency]
-    currency_symbol := currency_properties["symbol"]
-    symbol_location := currency_properties["symbol_location"]
-
-    MsgBox % currency_symbol . "`n`n" . symbol_location
+    sent_keys_stack := ["a", "a"]
+    sent_keys_stack.pop()
+    MsgBox % sent_keys_stack.Length()
 return
+
+; *f::
+;     currency_map := {}
+
+;     dollars := {}
+;     dollars["symbol"] := "$"
+;     dollars["symbol_location"] := "prefix"
+;     dollars["decimal"] := "."
+;     dollars["thousands_separator"] := ","
+;     currency_map["dollars"] := dollars
+
+;     currency := "dollars"
+;     currency_properties := currency_map[currency]
+;     currency_symbol := currency_properties["symbol"]
+;     symbol_location := currency_properties["symbol_location"]
+
+;     MsgBox % currency_symbol . "`n`n" . symbol_location
+; return
 
 ; *f::
 ;     automatch_characters := "{{}{{}% def %{}}{}}"
