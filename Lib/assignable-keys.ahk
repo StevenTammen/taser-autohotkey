@@ -251,7 +251,7 @@ number_leader() {
     return completely_internal_key()
 }
 
-command_leader() {
+move_microstate() {
     is_leader_press := True
     leader := "command"
     locked := "base"
@@ -265,10 +265,11 @@ function_leader() {
     return completely_internal_key()
 }
 
-actions_leader() {
+actions_microstate() {
     is_leader_press := True
     leader := "actions"
-    locked := "base"
+    ; Since the Actions Microstate is accessible from both Insert Mode and Normal Mode, we don't mess with locked
+    ; locked := "base"
     return completely_internal_key()
 }
 
@@ -302,12 +303,6 @@ number_lock() {
 function_lock() {
     leader := ""
     locked := "function"
-    return completely_internal_key()
-}
-
-actions_lock() {
-    leader := ""
-    locked := "actions"
     return completely_internal_key()
 }
 
@@ -1643,7 +1638,223 @@ number_formatter(operation_name, zeroes_to_add, currency) {
     decimal_portion := ""
     While (i >= 1) {
         stack_item := sent_keys_stack[i]
-        ;MsgBox % sent_keys_stack[i] . "`n`n" . contains(numbers, stack_item)
+        if(contains(numbers, stack_item)) {
+            non_decimal_portion := stack_item . non_decimal_portion
+            i := i - 1
+        }
+        else if(stack_item == "hundred") {
+            ; Commas are only added with a hundreds press if there are at least two
+            ; significant digits already. So we can't determinstically set
+            ; commas_already_added here. We have to do a check at the end (see below)
+            includes_hundred_press := True
+            non_decimal_portion := "00" . non_decimal_portion
+            i := i - 1
+        }
+        else if(stack_item == "thousand") {
+            non_decimal_portion := "000" . non_decimal_portion
+            i := i - 1
+        }
+        else if(stack_item == "million") {
+            non_decimal_portion := "000000" . non_decimal_portion
+            i := i - 1
+        }
+        else if(stack_item == "billion") {
+            non_decimal_portion := "000000000" . non_decimal_portion
+            i := i - 1
+        }
+        else if(stack_item == "trillion") {
+            non_decimal_portion := "000000000000" . non_decimal_portion
+            i := i - 1
+        }
+        else if(stack_item == "dot") {
+            has_decimal := True
+            decimal_portion := non_decimal_portion
+            non_decimal_portion := ""
+            i := i - 1
+        }
+        else if(stack_item == "add_commas") {
+            commas_already_added := True
+            i := i - 1
+        }
+        else {
+            ; TODO: press_before_number_sequence := stack_item
+            ; If letter, uppercase letter, caps_lock_letter, hyphen, then disable comma adding
+            break
+        }
+    }
+
+    ; Short circuit if there are no number related presses on top of stack.
+    ; Most operations will simply not do anything if they don't follow a number sequence.
+    ; Dot is an exception, since it can be used after letters etc. in some cases (usernames, e.g.)
+    if(non_decimal_portion == "" and decimal_portion == "" and (not has_decimal)) {
+        if(operation_name == "dot") {
+            return hotstring_inactive_delimiter_key_tracked("dot", ".", "{Backspace}")
+        }
+        else {
+            return eat_keypress()
+        }
+    }
+
+    ; Also short circuit if we are adding a decimal point but there are already one
+    ; or more present in the number string. Cf. IP addresses and sections in documents
+    ; (like section A.1.5, or whatever)
+    if(operation_name == "dot" and has_decimal) {
+        return hotstring_inactive_delimiter_key_tracked("dot", ".", "{Backspace}")
+    }
+
+    ; Get string representing the old_number, including any added commas
+    if(commas_already_added) {
+        non_decimal_portion := add_commas_to_non_decimal_portion(non_decimal_portion)
+    }
+    old_number := non_decimal_portion
+    if(has_decimal) {
+        old_number := old_number . "." . decimal_portion
+    }
+     
+    ; In practice, has_decimal controls whether zeroes get added to the decimal or
+    ; non_decimal portion, and since commas only ever get added to the non-decimal
+    ; portion, they are neither here nor there when it comes to the five cases
+    ; enumerated above
+    new_non_decimal_portion := ""
+    new_decimal_portion := ""
+    new_number := ""
+    if(has_decimal) {
+        ; First add zeroes, if applicable
+        new_decimal_portion := decimal_portion . zeroes_to_add
+        ; Then add commas, if applicable. If you remove
+        ;        and not is_zero_expansion_operation(operation_name)
+        ; You can make hundred, thousand, etc. add commas automatically, so don't need a subsequent add_commas press
+        ; I don't recommend doing that (because sometimes you *don't* want commas added), but you can if you wish
+        if(not commas_already_added and not is_comma_neutral_operation(operation_name)) {
+            new_non_decimal_portion := add_commas_to_non_decimal_portion(non_decimal_portion)
+        }
+        else {
+            new_non_decimal_portion := non_decimal_portion
+        }
+        new_number := new_non_decimal_portion . "." . new_decimal_portion
+        ; Then add currency symbol, if applicable
+        if(currency != "") {
+            currency_properties := currency_map[currency]
+            currency_symbol := currency_properties["symbol"]
+            symbol_location := currency_properties["symbol_location"]
+            if(symbol_location == "prefix") {
+                new_number := currency_symbol . new_number
+            }
+            else if(symbol_location == "postfix") {
+                new_number := new_number . currency_symbol
+            }
+        }
+    }
+    else {
+        ; First add zeroes, if applicable
+        new_non_decimal_portion := non_decimal_portion . zeroes_to_add
+        ; Then add commas, if applicable. If you remove
+        ;        and not is_zero_expansion_operation(operation_name)
+        ; You can make hundred, thousand, etc. add commas automatically, so don't need a subsequent add_commas press
+        ; I don't recommend doing that (because sometimes you *don't* want commas added), but you can if you wish
+        if(not commas_already_added and not is_comma_neutral_operation(operation_name)) {
+            new_non_decimal_portion := add_commas_to_non_decimal_portion(new_non_decimal_portion)
+        }
+        ; Then add decimal point, if applicable (will be mutually exclusive with adding
+        ; zeroes, in practice. Dot operation vs. hundred, thousand, etc.)
+        if(operation_name == "dot") {
+            new_non_decimal_portion := new_non_decimal_portion . "."
+        }
+        new_number := new_non_decimal_portion
+        ; Then add currency symbol, if applicable
+        if(currency != "") {
+            currency_properties := currency_map[currency]
+            currency_symbol := currency_properties["symbol"]
+            symbol_location := currency_properties["symbol_location"]
+            if(symbol_location == "prefix") {
+                new_number := currency_symbol . new_number
+            }
+            else if(symbol_location == "postfix") {
+                new_number := new_number . currency_symbol
+            }
+        }
+    }
+
+    ; For efficiency's sake, we only want to be backspacing/re-adding the bare minimum.
+    ; What that means: if the old_number and new number share the first few characters,
+    ; there is no point in backspacing them only to add the exact same characters back.
+    ; So we need to figure out how many "shared" characters there are. There are some additional
+    ; wrinkles too:
+    ;   - Any time you are using a currency with a prefix symbol location, there will be nothing
+    ;     shared, since the currency symbol needs to go before everything else that was there.
+    ;   - Commas count. In practice this mostly comes into play with the dot operator if it 
+    ;     follows like hundred, thousand, etc., since commas would already have been added in
+    ;     such a case.
+
+    i := 1
+    Loop % StrLen(old_number) {
+        if(SubStr(old_number, i, 1) == SubStr(new_number, i, 1)) {
+            i := i + 1
+        }
+        else {
+            break
+        }
+    }
+
+    old_number_with_shared_removed := SubStr(old_number, i)
+    new_number_with_shared_removed := SubStr(new_number, i)
+
+    ; For keys_to_return, we want to backspace the old number, and then send the
+    ; new formatted number (with zeroes and/or commas added as applicable).
+    keys_to_return := ""
+    Loop % StrLen(old_number_with_shared_removed) {
+        keys_to_return := keys_to_return . "{Backspace}"
+    }
+    keys_to_return := keys_to_return . new_number_with_shared_removed
+    
+    ; For undo_keys, we want to backspace the new number, and then re-send the
+    ; old number
+    undo_keys := ""
+    Loop % StrLen(new_number_with_shared_removed) {
+        undo_keys := undo_keys . "{Backspace}"
+    }
+    undo_keys := undo_keys . old_number_with_shared_removed
+
+    ; We don't need to be triggering hotstrings with formatting operations on numbers
+    return hotstring_inactive_delimiter_key_tracked(operation_name, keys_to_return, undo_keys)
+}
+
+; eleven thousand two hundred = 112{hundred} --> 11,200
+; five hundred thousand = 5{hundred}{thousand} --> 500,000
+; seven hundred dollars = 7{hundred}{dollars} --> $700
+
+; This is a helper method used to do most of the number formatting
+; If zeroes_to_add = "" this function will just add commas to
+; the number. Otherwise, it will add zeroes, and then add commas.
+; It is smart enough to not mess up if a currency operation (which auto-adds commas)
+; follows an operation that has already added commas (thousand, e.g.).
+; It will also eat presses that don't make sense (thousand followed by
+; billion, e.g.).
+number_formatter_auto_add_commas(operation_name, zeroes_to_add, currency) {
+
+    ; Eat keypress if have nothing on sent_keys_stack := just moved location or whatever
+    i := sent_keys_stack.Length()
+    if(i == 0) {
+        return eat_keypress()
+    }
+
+    ; Get string representing all the contiguous number-related presses on the top of the stack.
+    ; Dot included, for decimal numbers.
+    ; -----------------------------------------------------
+    ; There are five cases we have, based upon how the number looks:
+    ;   . (just decimal point, has_decimal == True)
+    ;   111 (just non_decimal_portion, has_decimal == False)
+    ;   111. (just non_decimal_portion, has_decimal == True)
+    ;   .111 (just decimal_portion, has_decimal == True)
+    ;   111.111 (both decimal and non_decimal portions, has_decimal == True)
+    commas_already_added := False
+    numbers := ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    includes_hundred_press := False
+    has_decimal := False
+    non_decimal_portion := ""
+    decimal_portion := ""
+    While (i >= 1) {
+        stack_item := sent_keys_stack[i]
         if(contains(numbers, stack_item)) {
             non_decimal_portion := stack_item . non_decimal_portion
             i := i - 1
@@ -1769,7 +1980,7 @@ number_formatter(operation_name, zeroes_to_add, currency) {
     else {
         ; First add zeroes, if applicable
         new_non_decimal_portion := non_decimal_portion . zeroes_to_add
-        ; Then add commas, if applicable
+        ; Then add commas, if applicable.
         if(not commas_already_added) {
             new_non_decimal_portion := add_commas_to_non_decimal_portion(new_non_decimal_portion)
         }
@@ -1866,7 +2077,8 @@ number_lock_format_as_dollars() {
 }
 
 number_lock_format_as_other_other_currency(currency) {
-    return number_formatter(currency, "", currency)
+    ; TODO
+    ;return number_formatter(currency, "", currency)
 }
 
 number_lock_write_out_number() {
@@ -2346,6 +2558,10 @@ paste_after() {
 
 paste_before() {
     return hotstring_trigger_action_key_untracked_reset_entry_related_variables("paste_before", "^v")
+}
+
+replace() {
+    return hotstring_trigger_action_key_untracked_reset_entry_related_variables("replace", "^v")
 }
 
 undo() {

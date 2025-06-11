@@ -5,7 +5,7 @@
 ;-------------------------------------------------
 
 left_top_pinky_extension_selection_lock() {
-    ; TODO
+    return append_after()
 }
 
 left_top_pinky_selection_lock() {
@@ -25,7 +25,7 @@ left_top_index_selection_lock() {
 }
 
 left_top_index_extension_selection_lock() {
-    return append_after()
+    ; TODO
 }
 
 ; Right Top
@@ -113,27 +113,27 @@ right_middle_pinky_extension_selection_lock() {
 ;-------------------------------------------------
 
 left_bottom_pinky_extension_selection_lock() {
-    return command_leader()
+    return move_microstate()
 }
 
 left_bottom_pinky_selection_lock() {
-    return left()
+    return undo()
 }
 
 left_bottom_ring_selection_lock() {
-    return up()
+    return redo()
 }
 
 left_bottom_middle_selection_lock() {
-    return down()
+    ; TODO
 }
 
 left_bottom_index_selection_lock() {
-    return right()
+    ; TODO
 }
 
 left_bottom_index_extension_selection_lock() {
-    return insert_before()
+    ; TODO
 }
 
 ; Right Bottom
@@ -167,11 +167,11 @@ right_bottom_pinky_extension_selection_lock() {
 ;-------------------------------------------------
 
 left_thumb_inner_selection_lock() {
-    return actions_leader()
+    return actions_microstate()
 }
 
 left_thumb_neutral_selection_lock() {
-    ; TODO
+    return insert_before()
 }
 
 left_thumb_outer_selection_lock() {

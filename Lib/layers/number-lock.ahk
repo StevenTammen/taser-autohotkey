@@ -5,7 +5,7 @@
 ;-------------------------------------------------
 
 left_top_pinky_extension_number_lock() {
-    return tab()
+    return base_lock()
 }
 
 left_top_pinky_number_lock() {
@@ -21,11 +21,11 @@ left_top_middle_number_lock() {
 }
 
 left_top_index_number_lock() {
-    return en_dash()
+    return hyphen()
 }
 
 left_top_index_extension_number_lock() {
-    return apostrophe()
+    ; TODO
 }
 
 ; Right Top
@@ -33,7 +33,6 @@ left_top_index_extension_number_lock() {
 
 right_top_index_extension_number_lock() {
     ; TODO
-    ;return number_lock_format_as_other_other_currency()
 }
 
 right_top_index_number_lock() {
@@ -49,11 +48,12 @@ right_top_ring_number_lock() {
 }
 
 right_top_pinky_number_lock() {
-    return number_lock_format_with_commas()
+    ; TODO
+    ; return number_lock_format_as_other_other_currency()
 }
 
 right_top_pinky_extension_number_lock() {
-    ; Intentionally left blank
+    return caps_leader()
 }
 
 ; Left Middle
@@ -87,7 +87,7 @@ left_middle_index_extension_number_lock() {
 ;-------------------------------------------------
 
 right_middle_index_extension_number_lock() {
-    return number_lock_format_as_dollars()
+    return number_lock_format_with_commas()
 }
 
 right_middle_index_number_lock() {
@@ -107,18 +107,18 @@ right_middle_pinky_number_lock() {
 }
 
 right_middle_pinky_extension_number_lock() {
-    ; Intentionally left blank
+    return number_lock_write_out_number()
 }
 
 ; Left Bottom
 ;-------------------------------------------------
 
 left_bottom_pinky_extension_number_lock() {
-    return command_leader()
+    return move_microstate()
 }
 
 left_bottom_pinky_number_lock() {
-    return number_lock_write_out_number()
+    return number_lock_format_as_dollars()
 }
 
 left_bottom_ring_number_lock() {
@@ -161,14 +161,14 @@ right_bottom_pinky_number_lock() {
 }
 
 right_bottom_pinky_extension_number_lock() {
-    return caps_leader()
+    ; TODO
 }
 
 ; Left Thumbs
 ;-------------------------------------------------
 
 left_thumb_inner_number_lock() {
-    return actions_leader()
+    return actions_microstate()
 }
 
 left_thumb_neutral_number_lock() {

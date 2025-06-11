@@ -62,6 +62,11 @@ is_number(character) {
     return (contains(numbers, character))
 }
 
+is_comma_neutral_operation(operation_name) {
+    zero_expansion_operations := ["dot", "hundred", "thousand", "million", "billion", "trillion"]
+    return (contains(zero_expansion_operations, operation_name))
+}
+
 is_hotstring_character(character) {
     return (contains(hostring_characters, character))
 }

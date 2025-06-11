@@ -5,7 +5,7 @@
 ;-------------------------------------------------
 
 left_top_pinky_extension_base_lock() {
-    return tab()
+    return base_lock()
 }
 
 left_top_pinky_base_lock() {
@@ -25,7 +25,7 @@ left_top_index_base_lock() {
 }
 
 left_top_index_extension_base_lock() {
-    return apostrophe()
+    ; TODO
 }
 
 ; Right Top
@@ -52,7 +52,7 @@ right_top_pinky_base_lock() {
 }
 
 right_top_pinky_extension_base_lock() {
-    return lowercase_q()
+    return caps_leader()
 }
 
 ; Left Middle
@@ -113,7 +113,7 @@ right_middle_pinky_extension_base_lock() {
 ;-------------------------------------------------
 
 left_bottom_pinky_extension_base_lock() {
-    return command_leader()
+    return move_microstate()
 }
 
 left_bottom_pinky_base_lock() {
@@ -178,14 +178,14 @@ right_bottom_pinky_base_lock() {
 }
 
 right_bottom_pinky_extension_base_lock() {
-    return caps_leader()
+    return lowercase_q()
 }
 
 ; Left Thumbs
 ;-------------------------------------------------
 
 left_thumb_inner_base_lock() {
-    return actions_leader()
+    return actions_microstate()
 }
 
 left_thumb_neutral_base_lock() {

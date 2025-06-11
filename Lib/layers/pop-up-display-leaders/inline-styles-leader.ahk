@@ -113,7 +113,7 @@ right_middle_pinky_extension_inline_styles_leader() {
 ;-------------------------------------------------
 
 left_bottom_pinky_extension_inline_styles_leader() {
-    return command_leader()
+    return move_microstate()
 }
 
 left_bottom_pinky_inline_styles_leader() {

@@ -5,7 +5,7 @@
 ;-------------------------------------------------
 
 left_top_pinky_extension_caps_leader() {
-    ; TODO
+    return base_lock()
 }
 
 left_top_pinky_caps_leader() {
@@ -52,14 +52,14 @@ right_top_pinky_caps_leader() {
 }
 
 right_top_pinky_extension_caps_leader() {
-    return caps_lock_q_autolock_caps_layer()
+    return caps_leader()
 }
 
 ; Left Middle
 ;-------------------------------------------------
 
 left_middle_pinky_extension_caps_leader() {
-    ; TODO
+    return backtick()
 }
 
 left_middle_pinky_caps_leader() {
@@ -113,7 +113,7 @@ right_middle_pinky_extension_caps_leader() {
 ;-------------------------------------------------
 
 left_bottom_pinky_extension_caps_leader() {
-    return command_leader()
+    return move_microstate()
 }
 
 left_bottom_pinky_caps_leader() {
@@ -140,7 +140,7 @@ left_bottom_middle_caps_leader() {
         return hotstring_trigger_action_key_untracked_reset_entry_related_variables(")", keys_to_return)
     }
     else {
-        return inline_styles_leader()
+        ; TODO
     }
 }
 
@@ -184,18 +184,18 @@ right_bottom_pinky_caps_leader() {
 }
 
 right_bottom_pinky_extension_caps_leader() {
-    return caps_leader()
+    return caps_lock_q_autolock_caps_layer()
 }
 
 ; Left Thumbs
 ;-------------------------------------------------
 
 left_thumb_inner_caps_leader() {
-    return actions_leader()
+    return actions_microstate()
 }
 
 left_thumb_neutral_caps_leader() {
-    ; TODO
+    ; TODO - raw backspace
 }
 
 left_thumb_outer_caps_leader() {
@@ -210,7 +210,7 @@ right_thumb_outer_caps_leader() {
 }
 
 right_thumb_neutral_caps_leader() {
-    ; TODO
+    return backspace()
 }
 
 right_thumb_inner_caps_leader() {

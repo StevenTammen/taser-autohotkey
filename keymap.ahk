@@ -264,15 +264,14 @@ capitalize_after_expansions.Push("{#}{#}{#}{#}{#}{#}{Space}")
 #Include <layers/caps-lock>
 #Include <layers/number-lock>
 #Include <layers/function-lock>
-#Include <layers/actions-lock>
 #Include <layers/selection-lock>
 
 #Include <layers/shift-leader>
 #Include <layers/caps-leader>
 #Include <layers/number-leader>
-#Include <layers/command-leader>
+#Include <layers/move-microstate>
 #Include <layers/function-leader>
-#Include <layers/actions-leader>
+#Include <layers/actions-microstate>
 
 #Include <layers/pop-up-display-leaders/inline-styles-leader>
 
@@ -321,13 +320,13 @@ RButton Up::
 			keys_to_return := left_top_pinky_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_top_pinky_extension_command_leader()
+			keys_to_return := left_top_pinky_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_top_pinky_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_top_pinky_extension_actions_leader()
+			keys_to_return := left_top_pinky_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_top_pinky_extension_inline_styles_leader()
@@ -357,9 +356,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_top_pinky_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_top_pinky_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_top_pinky_extension_selection_lock()
 		}
@@ -386,13 +382,13 @@ RButton Up::
 			keys_to_return := left_top_pinky_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_top_pinky_command_leader()
+			keys_to_return := left_top_pinky_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_top_pinky_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_top_pinky_actions_leader()
+			keys_to_return := left_top_pinky_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_top_pinky_inline_styles_leader()
@@ -422,9 +418,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_top_pinky_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_top_pinky_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_top_pinky_selection_lock()
 		}
@@ -451,13 +444,13 @@ RButton Up::
 			keys_to_return := left_top_ring_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_top_ring_command_leader()
+			keys_to_return := left_top_ring_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_top_ring_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_top_ring_actions_leader()
+			keys_to_return := left_top_ring_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_top_ring_inline_styles_leader()
@@ -487,9 +480,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_top_ring_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_top_ring_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_top_ring_selection_lock()
 		}
@@ -516,13 +506,13 @@ RButton Up::
 			keys_to_return := left_top_middle_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_top_middle_command_leader()
+			keys_to_return := left_top_middle_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_top_middle_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_top_middle_actions_leader()
+			keys_to_return := left_top_middle_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_top_middle_inline_styles_leader()
@@ -552,9 +542,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_top_middle_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_top_middle_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_top_middle_selection_lock()
 		}
@@ -581,13 +568,13 @@ RButton Up::
 			keys_to_return := left_top_index_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_top_index_command_leader()
+			keys_to_return := left_top_index_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_top_index_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_top_index_actions_leader()
+			keys_to_return := left_top_index_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_top_index_inline_styles_leader()
@@ -617,9 +604,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_top_index_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_top_index_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_top_index_selection_lock()
 		}
@@ -646,13 +630,13 @@ RButton Up::
 			keys_to_return := left_top_index_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_top_index_extension_command_leader()
+			keys_to_return := left_top_index_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_top_index_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_top_index_extension_actions_leader()
+			keys_to_return := left_top_index_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_top_index_extension_inline_styles_leader()
@@ -682,9 +666,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_top_index_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_top_index_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_top_index_extension_selection_lock()
 		}
@@ -713,13 +694,13 @@ RButton Up::
 			keys_to_return := right_top_index_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_top_index_extension_command_leader()
+			keys_to_return := right_top_index_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_top_index_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_top_index_extension_actions_leader()
+			keys_to_return := right_top_index_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_top_index_extension_inline_styles_leader()
@@ -749,9 +730,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_top_index_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_top_index_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_top_index_extension_selection_lock()
 		}
@@ -778,13 +756,13 @@ RButton Up::
 			keys_to_return := right_top_index_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_top_index_command_leader()
+			keys_to_return := right_top_index_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_top_index_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_top_index_actions_leader()
+			keys_to_return := right_top_index_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_top_index_inline_styles_leader()
@@ -814,9 +792,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_top_index_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_top_index_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_top_index_selection_lock()
 		}
@@ -843,13 +818,13 @@ RButton Up::
 			keys_to_return := right_top_middle_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_top_middle_command_leader()
+			keys_to_return := right_top_middle_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_top_middle_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_top_middle_actions_leader()
+			keys_to_return := right_top_middle_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_top_middle_inline_styles_leader()
@@ -879,9 +854,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_top_middle_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_top_middle_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_top_middle_selection_lock()
 		}
@@ -908,13 +880,13 @@ RButton Up::
 			keys_to_return := right_top_ring_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_top_ring_command_leader()
+			keys_to_return := right_top_ring_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_top_ring_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_top_ring_actions_leader()
+			keys_to_return := right_top_ring_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_top_ring_inline_styles_leader()
@@ -944,9 +916,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_top_ring_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_top_ring_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_top_ring_selection_lock()
 		}
@@ -973,13 +942,13 @@ RButton Up::
 			keys_to_return := right_top_pinky_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_top_pinky_command_leader()
+			keys_to_return := right_top_pinky_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_top_pinky_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_top_pinky_actions_leader()
+			keys_to_return := right_top_pinky_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_top_pinky_inline_styles_leader()
@@ -1009,9 +978,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_top_pinky_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_top_pinky_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_top_pinky_selection_lock()
 		}
@@ -1038,13 +1004,13 @@ RButton Up::
 			keys_to_return := right_top_pinky_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_top_pinky_extension_command_leader()
+			keys_to_return := right_top_pinky_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_top_pinky_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_top_pinky_extension_actions_leader()
+			keys_to_return := right_top_pinky_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_top_pinky_extension_inline_styles_leader()
@@ -1073,9 +1039,6 @@ RButton Up::
 		}
 		else if(locked == "function") {
 			keys_to_return := right_top_pinky_extension_function_lock()
-		}
-		else if(locked == "actions") {
-			keys_to_return := right_top_pinky_extension_actions_lock()
 		}
 		else if(locked == "selection") {
 			keys_to_return := right_top_pinky_extension_selection_lock()
@@ -1107,13 +1070,13 @@ RButton Up::
 			keys_to_return := left_middle_pinky_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_middle_pinky_extension_command_leader()
+			keys_to_return := left_middle_pinky_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_middle_pinky_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_middle_pinky_extension_actions_leader()
+			keys_to_return := left_middle_pinky_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_middle_pinky_extension_inline_styles_leader()
@@ -1143,9 +1106,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_middle_pinky_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_middle_pinky_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_middle_pinky_extension_selection_lock()
 		}
@@ -1172,13 +1132,13 @@ RButton Up::
 			keys_to_return := left_middle_pinky_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_middle_pinky_command_leader()
+			keys_to_return := left_middle_pinky_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_middle_pinky_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_middle_pinky_actions_leader()
+			keys_to_return := left_middle_pinky_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_middle_pinky_inline_styles_leader()
@@ -1208,9 +1168,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_middle_pinky_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_middle_pinky_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_middle_pinky_selection_lock()
 		}
@@ -1237,13 +1194,13 @@ RButton Up::
 			keys_to_return := left_middle_ring_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_middle_ring_command_leader()
+			keys_to_return := left_middle_ring_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_middle_ring_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_middle_ring_actions_leader()
+			keys_to_return := left_middle_ring_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_middle_ring_inline_styles_leader()
@@ -1273,9 +1230,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_middle_ring_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_middle_ring_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_middle_ring_selection_lock()
 		}
@@ -1302,13 +1256,13 @@ RButton Up::
 			keys_to_return := left_middle_middle_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_middle_middle_command_leader()
+			keys_to_return := left_middle_middle_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_middle_middle_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_middle_middle_actions_leader()
+			keys_to_return := left_middle_middle_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_middle_middle_inline_styles_leader()
@@ -1338,9 +1292,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_middle_middle_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_middle_middle_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_middle_middle_selection_lock()
 		}
@@ -1367,13 +1318,13 @@ RButton Up::
 			keys_to_return := left_middle_index_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_middle_index_command_leader()
+			keys_to_return := left_middle_index_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_middle_index_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_middle_index_actions_leader()
+			keys_to_return := left_middle_index_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_middle_index_inline_styles_leader()
@@ -1403,9 +1354,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_middle_index_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_middle_index_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_middle_index_selection_lock()
 		}
@@ -1432,13 +1380,13 @@ RButton Up::
 			keys_to_return := left_middle_index_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_middle_index_extension_command_leader()
+			keys_to_return := left_middle_index_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_middle_index_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_middle_index_extension_actions_leader()
+			keys_to_return := left_middle_index_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_middle_index_extension_inline_styles_leader()
@@ -1468,9 +1416,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_middle_index_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_middle_index_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_middle_index_extension_selection_lock()
 		}
@@ -1499,13 +1444,13 @@ RButton Up::
 			keys_to_return := right_middle_index_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_middle_index_extension_command_leader()
+			keys_to_return := right_middle_index_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_middle_index_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_middle_index_extension_actions_leader()
+			keys_to_return := right_middle_index_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_middle_index_extension_inline_styles_leader()
@@ -1535,9 +1480,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_middle_index_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_middle_index_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_middle_index_extension_selection_lock()
 		}
@@ -1564,13 +1506,13 @@ RButton Up::
 			keys_to_return := right_middle_index_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_middle_index_command_leader()
+			keys_to_return := right_middle_index_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_middle_index_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_middle_index_actions_leader()
+			keys_to_return := right_middle_index_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_middle_index_inline_styles_leader()
@@ -1600,9 +1542,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_middle_index_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_middle_index_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_middle_index_selection_lock()
 		}
@@ -1629,13 +1568,13 @@ RButton Up::
 			keys_to_return := right_middle_middle_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_middle_middle_command_leader()
+			keys_to_return := right_middle_middle_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_middle_middle_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_middle_middle_actions_leader()
+			keys_to_return := right_middle_middle_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_middle_middle_inline_styles_leader()
@@ -1665,9 +1604,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_middle_middle_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_middle_middle_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_middle_middle_selection_lock()
 		}
@@ -1694,13 +1630,13 @@ RButton Up::
 			keys_to_return := right_middle_ring_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_middle_ring_command_leader()
+			keys_to_return := right_middle_ring_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_middle_ring_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_middle_ring_actions_leader()
+			keys_to_return := right_middle_ring_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_middle_ring_inline_styles_leader()
@@ -1730,9 +1666,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_middle_ring_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_middle_ring_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_middle_ring_selection_lock()
 		}
@@ -1759,13 +1692,13 @@ RButton Up::
 			keys_to_return := right_middle_pinky_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_middle_pinky_command_leader()
+			keys_to_return := right_middle_pinky_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_middle_pinky_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_middle_pinky_actions_leader()
+			keys_to_return := right_middle_pinky_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_middle_pinky_inline_styles_leader()
@@ -1795,9 +1728,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_middle_pinky_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_middle_pinky_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_middle_pinky_selection_lock()
 		}
@@ -1824,13 +1754,13 @@ RButton Up::
 			keys_to_return := right_middle_pinky_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_middle_pinky_extension_command_leader()
+			keys_to_return := right_middle_pinky_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_middle_pinky_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_middle_pinky_extension_actions_leader()
+			keys_to_return := right_middle_pinky_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_middle_pinky_extension_inline_styles_leader()
@@ -1859,9 +1789,6 @@ RButton Up::
 		}
 		else if(locked == "function") {
 			keys_to_return := right_middle_pinky_extension_function_lock()
-		}
-		else if(locked == "actions") {
-			keys_to_return := right_middle_pinky_extension_actions_lock()
 		}
 		else if(locked == "selection") {
 			keys_to_return := right_middle_pinky_extension_selection_lock()
@@ -1893,13 +1820,13 @@ RButton Up::
 			keys_to_return := left_bottom_pinky_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_bottom_pinky_extension_command_leader()
+			keys_to_return := left_bottom_pinky_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_bottom_pinky_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_bottom_pinky_extension_actions_leader()
+			keys_to_return := left_bottom_pinky_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_bottom_pinky_extension_inline_styles_leader()
@@ -1929,9 +1856,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_bottom_pinky_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_bottom_pinky_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_bottom_pinky_extension_selection_lock()
 		}
@@ -1958,13 +1882,13 @@ RButton Up::
 			keys_to_return := left_bottom_pinky_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_bottom_pinky_command_leader()
+			keys_to_return := left_bottom_pinky_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_bottom_pinky_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_bottom_pinky_actions_leader()
+			keys_to_return := left_bottom_pinky_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_bottom_pinky_inline_styles_leader()
@@ -1994,9 +1918,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_bottom_pinky_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_bottom_pinky_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_bottom_pinky_selection_lock()
 		}
@@ -2023,13 +1944,13 @@ RButton Up::
 			keys_to_return := left_bottom_ring_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_bottom_ring_command_leader()
+			keys_to_return := left_bottom_ring_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_bottom_ring_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_bottom_ring_actions_leader()
+			keys_to_return := left_bottom_ring_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_bottom_ring_inline_styles_leader()
@@ -2059,9 +1980,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_bottom_ring_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_bottom_ring_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_bottom_ring_selection_lock()
 		}
@@ -2088,13 +2006,13 @@ RButton Up::
 			keys_to_return := left_bottom_middle_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_bottom_middle_command_leader()
+			keys_to_return := left_bottom_middle_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_bottom_middle_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_bottom_middle_actions_leader()
+			keys_to_return := left_bottom_middle_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_bottom_middle_inline_styles_leader()
@@ -2124,9 +2042,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_bottom_middle_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_bottom_middle_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_bottom_middle_selection_lock()
 		}
@@ -2153,13 +2068,13 @@ RButton Up::
 			keys_to_return := left_bottom_index_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_bottom_index_command_leader()
+			keys_to_return := left_bottom_index_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_bottom_index_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_bottom_index_actions_leader()
+			keys_to_return := left_bottom_index_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_bottom_index_inline_styles_leader()
@@ -2189,9 +2104,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_bottom_index_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_bottom_index_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_bottom_index_selection_lock()
 		}
@@ -2218,13 +2130,13 @@ RButton Up::
 			keys_to_return := left_bottom_index_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_bottom_index_extension_command_leader()
+			keys_to_return := left_bottom_index_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_bottom_index_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_bottom_index_extension_actions_leader()
+			keys_to_return := left_bottom_index_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_bottom_index_extension_inline_styles_leader()
@@ -2254,9 +2166,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_bottom_index_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_bottom_index_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_bottom_index_extension_selection_lock()
 		}
@@ -2285,13 +2194,13 @@ RButton Up::
 			keys_to_return := right_bottom_index_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_bottom_index_extension_command_leader()
+			keys_to_return := right_bottom_index_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_bottom_index_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_bottom_index_extension_actions_leader()
+			keys_to_return := right_bottom_index_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_bottom_index_extension_inline_styles_leader()
@@ -2321,9 +2230,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_bottom_index_extension_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_bottom_index_extension_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_bottom_index_extension_selection_lock()
 		}
@@ -2350,13 +2256,13 @@ RButton Up::
 			keys_to_return := right_bottom_index_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_bottom_index_command_leader()
+			keys_to_return := right_bottom_index_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_bottom_index_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_bottom_index_actions_leader()
+			keys_to_return := right_bottom_index_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_bottom_index_inline_styles_leader()
@@ -2386,9 +2292,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_bottom_index_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_bottom_index_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_bottom_index_selection_lock()
 		}
@@ -2415,13 +2318,13 @@ RButton Up::
 			keys_to_return := right_bottom_middle_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_bottom_middle_command_leader()
+			keys_to_return := right_bottom_middle_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_bottom_middle_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_bottom_middle_actions_leader()
+			keys_to_return := right_bottom_middle_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_bottom_middle_inline_styles_leader()
@@ -2451,9 +2354,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_bottom_middle_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_bottom_middle_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_bottom_middle_selection_lock()
 		}
@@ -2480,13 +2380,13 @@ RButton Up::
 			keys_to_return := right_bottom_ring_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_bottom_ring_command_leader()
+			keys_to_return := right_bottom_ring_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_bottom_ring_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_bottom_ring_actions_leader()
+			keys_to_return := right_bottom_ring_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_bottom_ring_inline_styles_leader()
@@ -2516,9 +2416,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_bottom_ring_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_bottom_ring_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_bottom_ring_selection_lock()
 		}
@@ -2545,13 +2442,13 @@ RButton Up::
 			keys_to_return := right_bottom_pinky_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_bottom_pinky_command_leader()
+			keys_to_return := right_bottom_pinky_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_bottom_pinky_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_bottom_pinky_actions_leader()
+			keys_to_return := right_bottom_pinky_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_bottom_pinky_inline_styles_leader()
@@ -2581,9 +2478,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_bottom_pinky_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_bottom_pinky_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_bottom_pinky_selection_lock()
 		}
@@ -2610,13 +2504,13 @@ RButton Up::
 			keys_to_return := right_bottom_pinky_extension_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_bottom_pinky_extension_command_leader()
+			keys_to_return := right_bottom_pinky_extension_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_bottom_pinky_extension_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_bottom_pinky_extension_actions_leader()
+			keys_to_return := right_bottom_pinky_extension_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_bottom_pinky_extension_inline_styles_leader()
@@ -2645,9 +2539,6 @@ RButton Up::
 		}
 		else if(locked == "function") {
 			keys_to_return := right_bottom_pinky_extension_function_lock()
-		}
-		else if(locked == "actions") {
-			keys_to_return := right_bottom_pinky_extension_actions_lock()
 		}
 		else if(locked == "selection") {
 			keys_to_return := right_bottom_pinky_extension_selection_lock()
@@ -2679,13 +2570,13 @@ RButton Up::
 			keys_to_return := left_thumb_inner_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_thumb_inner_command_leader()
+			keys_to_return := left_thumb_inner_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_thumb_inner_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_thumb_inner_actions_leader()
+			keys_to_return := left_thumb_inner_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_thumb_inner_inline_styles_leader()
@@ -2715,9 +2606,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_thumb_inner_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_thumb_inner_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_thumb_inner_selection_lock()
 		}
@@ -2744,13 +2632,13 @@ RButton Up::
 			keys_to_return := left_thumb_neutral_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_thumb_neutral_command_leader()
+			keys_to_return := left_thumb_neutral_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_thumb_neutral_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_thumb_neutral_actions_leader()
+			keys_to_return := left_thumb_neutral_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_thumb_neutral_inline_styles_leader()
@@ -2780,9 +2668,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_thumb_neutral_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_thumb_neutral_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_thumb_neutral_selection_lock()
 		}
@@ -2809,13 +2694,13 @@ RButton Up::
 			keys_to_return := left_thumb_outer_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := left_thumb_outer_command_leader()
+			keys_to_return := left_thumb_outer_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := left_thumb_outer_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := left_thumb_outer_actions_leader()
+			keys_to_return := left_thumb_outer_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := left_thumb_outer_inline_styles_leader()
@@ -2845,9 +2730,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := left_thumb_outer_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := left_thumb_outer_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := left_thumb_outer_selection_lock()
 		}
@@ -2876,13 +2758,13 @@ RButton Up::
 			keys_to_return := right_thumb_outer_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_thumb_outer_command_leader()
+			keys_to_return := right_thumb_outer_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_thumb_outer_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_thumb_outer_actions_leader()
+			keys_to_return := right_thumb_outer_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_thumb_outer_inline_styles_leader()
@@ -2912,9 +2794,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_thumb_outer_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_thumb_outer_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_thumb_outer_selection_lock()
 		}
@@ -2941,13 +2820,13 @@ RButton Up::
 			keys_to_return := right_thumb_neutral_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_thumb_neutral_command_leader()
+			keys_to_return := right_thumb_neutral_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_thumb_neutral_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_thumb_neutral_actions_leader()
+			keys_to_return := right_thumb_neutral_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_thumb_neutral_inline_styles_leader()
@@ -2977,9 +2856,6 @@ RButton Up::
 		else if(locked == "function") {
 			keys_to_return := right_thumb_neutral_function_lock()
 		}
-		else if(locked == "actions") {
-			keys_to_return := right_thumb_neutral_actions_lock()
-		}
 		else if(locked == "selection") {
 			keys_to_return := right_thumb_neutral_selection_lock()
 		}
@@ -3006,13 +2882,13 @@ RButton Up::
 			keys_to_return := right_thumb_inner_number_leader()
 		}
 		else if(leader == "command") {
-			keys_to_return := right_thumb_inner_command_leader()
+			keys_to_return := right_thumb_inner_move_microstate()
 		}
 		else if(leader == "function") {
 			keys_to_return := right_thumb_inner_function_leader()
 		}
 		else if(leader == "actions") {
-			keys_to_return := right_thumb_inner_actions_leader()
+			keys_to_return := right_thumb_inner_actions_microstate()
 		}
 		else if(leader == "inline_styles") {
 			keys_to_return := right_thumb_inner_inline_styles_leader()
@@ -3041,9 +2917,6 @@ RButton Up::
 		}
 		else if(locked == "function") {
 			keys_to_return := right_thumb_inner_function_lock()
-		}
-		else if(locked == "actions") {
-			keys_to_return := right_thumb_inner_actions_lock()
 		}
 		else if(locked == "selection") {
 			keys_to_return := right_thumb_inner_selection_lock()

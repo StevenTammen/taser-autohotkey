@@ -5,7 +5,7 @@
 ;-------------------------------------------------
 
 left_top_pinky_extension_number_leader() {
-    return toggle_code()
+    return base_lock()
 }
 
 left_top_pinky_number_leader() {
@@ -48,18 +48,18 @@ right_top_ring_number_leader() {
 }
 
 right_top_pinky_number_leader() {
-    return number_sign()
+    return dollar_sign()
 }
 
 right_top_pinky_extension_number_leader() {
-    return backtick()
+    return caps_leader()
 }
 
 ; Left Middle
 ;-------------------------------------------------
 
 left_middle_pinky_extension_number_leader() {
-    return toggle_prose()
+    return single_quotes()
 }
 
 left_middle_pinky_number_leader() {
@@ -86,7 +86,7 @@ left_middle_index_extension_number_leader() {
 ;-------------------------------------------------
 
 right_middle_index_extension_number_leader() {
-    return dollar_sign()
+    return number_sign()
 }
 
 right_middle_index_number_leader() {
@@ -106,14 +106,14 @@ right_middle_pinky_number_leader() {
 }
 
 right_middle_pinky_extension_number_leader() {
-    return tilde()
+    return at_sign()
 }
 
 ; Left Bottom
 ;-------------------------------------------------
 
 left_bottom_pinky_extension_number_leader() {
-    return command_leader()
+    return move_microstate()
 }
 
 left_bottom_pinky_number_leader() {
@@ -160,18 +160,18 @@ right_bottom_pinky_number_leader() {
 }
 
 right_bottom_pinky_extension_number_leader() {
-    return caps_leader()
+    return return tilde()
 }
 
 ; Left Thumbs
 ;-------------------------------------------------
 
 left_thumb_inner_number_leader() {
-    return actions_leader()
+    return actions_microstate()
 }
 
 left_thumb_neutral_number_leader() {
-    return base_lock()
+    return underscore()
 }
 
 left_thumb_outer_number_leader() {

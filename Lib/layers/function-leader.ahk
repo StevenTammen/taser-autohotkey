@@ -113,7 +113,7 @@ right_middle_pinky_extension_function_leader() {
 ;-------------------------------------------------
 
 left_bottom_pinky_extension_function_leader() {
-    return command_leader()
+    return move_microstate()
 }
 
 left_bottom_pinky_function_leader() {
@@ -167,7 +167,7 @@ right_bottom_pinky_extension_function_leader() {
 ;-------------------------------------------------
 
 left_thumb_inner_function_leader() {
-    return actions_leader()
+    return actions_microstate()
 }
 
 left_thumb_neutral_function_leader() {

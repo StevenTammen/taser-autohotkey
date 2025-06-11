@@ -5,7 +5,7 @@
 ;-------------------------------------------------
 
 left_top_pinky_extension_shift_leader() {
-    return raw_lock()
+    return base_lock()
 }
 
 left_top_pinky_shift_leader() {
@@ -25,7 +25,7 @@ left_top_index_shift_leader() {
 }
 
 left_top_index_extension_shift_leader() {
-    return single_quotes()
+    ; TODO
 }
 
 ; Right Top
@@ -52,14 +52,14 @@ right_top_pinky_shift_leader() {
 }
 
 right_top_pinky_extension_shift_leader() {
-    return uppercase_q()
+    return caps_leader()
 }
 
 ; Left Middle
 ;-------------------------------------------------
 
 left_middle_pinky_extension_shift_leader() {
-    return raw_leader()
+    return apostrophe()
 }
 
 left_middle_pinky_shift_leader() {
@@ -113,7 +113,7 @@ right_middle_pinky_extension_shift_leader() {
 ;-------------------------------------------------
 
 left_bottom_pinky_extension_shift_leader() {
-    return command_leader()
+    return move_microstate()
 }
 
 left_bottom_pinky_shift_leader() {
@@ -121,11 +121,11 @@ left_bottom_pinky_shift_leader() {
 }
 
 left_bottom_ring_shift_leader() {
-    return exclamation_mark()
+    return question_mark()
 }
 
 left_bottom_middle_shift_leader() {
-    return question_mark()
+    return exclamation_mark()
 }
 
 left_bottom_index_shift_leader() {
@@ -133,7 +133,7 @@ left_bottom_index_shift_leader() {
 }
 
 left_bottom_index_extension_shift_leader() {
-    return at_sign()
+    ; TODO
 }
 
 ; Right Bottom
@@ -160,18 +160,18 @@ right_bottom_pinky_shift_leader() {
 }
 
 right_bottom_pinky_extension_shift_leader() {
-    return caps_leader()
+    return uppercase_q()
 }
 
 ; Left Thumbs
 ;-------------------------------------------------
 
 left_thumb_inner_shift_leader() {
-    return actions_leader()
+    return actions_microstate()
 }
 
 left_thumb_neutral_shift_leader() {
-    return underscore()
+    return internal_backspace_by_word()
 }
 
 left_thumb_outer_shift_leader() {
